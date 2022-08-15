@@ -9,7 +9,7 @@ describe('testing additions', () => {
     }) 
 
     describe('testing negatives additions', () => {
-        test('it should add -4 + 2', () => {
+        test.skip('it should add -4 + 2', () => {
             expect(-4 + 2).toBe(-2)
         })
 

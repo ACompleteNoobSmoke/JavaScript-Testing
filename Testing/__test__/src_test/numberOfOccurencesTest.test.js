@@ -23,4 +23,22 @@ describe('Number Of Occurences', () => {
         //Then
         expect(actual).toBe(expected);
     })
+
+    test('Can find correct number of occurences when list is empty', () => {
+        const nums = [];
+        const searchNumber = 2;
+        const expected = 0;
+
+        const actual = numberOfOccurences(nums, searchNumber);
+
+        expect(actual).toBe(expected);
+    })
+
+    test('Throws an error when not a number is passed', () => {
+        const nums = [1, 2, 3, 3, 3, 4, 6, 8, 9, 9, 9];
+        const searchString = "Hello";
+
+        expect(() => numberOfOccurences(nums, searchString)).toThrow('Hello is not a number')
+
+    })
 })

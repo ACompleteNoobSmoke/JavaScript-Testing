@@ -16,6 +16,12 @@ describe('Used to test filter by gender', () => {
         const actualPeople = filterByGender(people, searchGender);
         actualPeople.forEach(e => expect(e.gender).toBe(searchGender));
     })
+
+    test('test to string', () => {
+        const person = getPeople()[0];
+        const personToString = person.toString();
+        expect('Name: Victoria\nGender: Female').toMatch(personToString);
+    })
 })
 
 

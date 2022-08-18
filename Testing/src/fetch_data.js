@@ -5,7 +5,7 @@ const fetchData = () => {
                 resolve('data back from the server');
             }, 100)
             setTimeout(() => {
-                resolve('oop error');
+                reject('oops error');
             }, 200)
         })
     });

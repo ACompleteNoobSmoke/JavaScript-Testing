@@ -75,5 +75,13 @@ describe('Mock', () => {
             myFunc.mockReturnValue('Hey There');
             expect(myFunc()).toBe('Hey There');
         })
+
+        test('mocking promises', () => {
+            const myFunc = jest.fn();
+            const resultArray = ["Jiu-Jitsu", "Kickboxing"];
+            myFunc.mockResolvedValue(["Jiu-Jitsu", 'Kickboxing']);
+
+            expect(myFunc()).resolves.toEqual(resultArray);
+        })
     })
 })

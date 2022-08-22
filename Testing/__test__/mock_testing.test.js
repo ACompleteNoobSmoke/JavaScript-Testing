@@ -41,4 +41,39 @@ describe('Mock', () => {
             expect(myFunc.mock.calls[1][0]).toBe('world');
         })
     })
+
+    describe.only('mock implementation', () => {
+        test('with callback', () => {
+            const mock = jest.fn(() => {
+                return "I will become a software engineer";
+            });
+            expect(mock()).toBe('I will become a software engineer');
+        })
+
+        test('with callback 2', () => {
+            const year = 2022;
+            const mock = jest.fn((year) => {
+                return `I will become a software engineer by ${year}`.toUpperCase();
+            })
+
+            expect(mock(year)).toBe('I WILL BECOME A SOFTWARE ENGINEER BY ' + year);
+        })
+
+        test('with callback .mockImplementation', () => {
+            const year = 2022;
+            const mock = jest.fn().mockImplementation((year) => {
+                return `I will become a software engineer by ${year}`.toUpperCase();
+            })
+
+            expect(mock(year)).toBe('I WILL BECOME A SOFTWARE ENGINEER BY ' + year);
+        })
+
+        test('mock return values', () => {
+            const myFunc = jest.fn();
+            expect(myFunc()).toBeUndefined();
+            
+            myFunc.mockReturnValue('Hey There');
+            expect(myFunc()).toBe('Hey There');
+        })
+    })
 })
